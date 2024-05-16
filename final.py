@@ -46,7 +46,7 @@ elif selected_option == 'Tentang Aplikasi':
     st.subheader("**DESKRIPSI**")
     st.write("ChemCalcs adalah aplikasi berbasis website dengan bahasa pemrograman Python yang berguna untuk menghitung konsentrasi senyawa hasil standarisasi dalam berbagai reaksi kimia analisis, termasuk standarisasi NaOH, HCl, KMnO4, Tiosulfat, dan EDTA. Aplikasi ini dirancang untuk mempermudah praktisi kimia analisis dalam melakukan perhitungan konsentrasi dengan akurat dan efisien.")
     st.subheader("**FUNGSI**")
-    multiline_text="1. Menghitung Konsentrasi Senyawa Hasil Standardisasi \n 2. Menghitung Standar Deviasi Konsentrasi Senyawa \n 3. Menghitung Persen Relatif Standar Deviasi Konsentrasi Senyawa "
+    multiline_text="1. Menghitung konsentrasi senyawa hasil standardisasi \n 2. Menghitung nilai rata-rata konsentrasi senyawa hasil standardisasi \n 3. Menghitung nilai Standar Deviasi (SD) Konsentrasi Senyawa (Untuk sampel triplo) \n 4. Menghitung nilai Persen Relatif Standar Deviasi (%RSD) (untuk sampel triplo) \n 5. Menghitung Persen Relatif Persen Difference (%RPD) (untuk sampel duplo)"
     st.write(multiline_text)
     st.subheader("**CARA PEMAKAIAN**")
     multiline_text="1. Pengguna memilih senyawa yang akan distandarisasi dari pilihan yang disediakan, yaitu NaOH, HCl, KMnO4, Tiosulfat, atau EDTA \n 2. Pengguna memilih pengulangan titrasi yang dilakukan (*duplo* atau *triplo*) \n 3. Pengguna memasukkan bobot senyawa standar baku primer sesuai hasil penimbangan, volume titran hasil titrasi, serta faktor pengali \n 3. Pengguna menekan tombol 'Hitung' dan tunggu beberapa saat sampai hasil perhitungan keluar "

@@ -224,7 +224,7 @@ else :
                 st.write(' ') 
 
     elif selected_option =='KMnO4':
-        #Standardisasi KMnO4 dengan Asam Oksalat
+        # Standardisasi KMnO4 dengan Asam Oksalat
         berat_molekul = 63.03272 #satuan mg/mgrek
         selected_option = option_menu(menu_title=None, options=["Duplo","Triplo"], icons=["2-square", "3-square"], orientation="horizontal")
         st.header('Standardisasi KMnO4 dengan Asam Oksalat')
@@ -232,9 +232,12 @@ else :
 
         if selected_option == "Duplo": 
             massa_oksalat = st.number_input('Masukkan Massa Oksalat Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
-            number_one = st.number_input('Masukkan volume titran pertama (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
-            number_two = st.number_input('Masukkan volume titran kedua (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
             faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
+            col1, col2 = st.columns(2)
+            with col1:
+                number_one = st.number_input('Masukkan volume titran pertama (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two = st.number_input('Masukkan volume titran kedua (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
         
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -259,10 +262,14 @@ else :
                 st.write(' ')
         else:     
             massa_oksalat = st.number_input('Masukkan Massa Oksalat Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
-            number_one = st.number_input('Masukkan volume titran pertama (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
-            number_two = st.number_input('Masukkan volume titran kedua (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
-            number_three = st.number_input('Masukkan volume titran ketiga (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
             faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
+            col1,col2,col3 = st.columns(3)
+            with col1:
+                number_one = st.number_input('Masukkan volume titran pertama (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two = st.number_input('Masukkan volume titran kedua (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
+            with col3:
+                number_three = st.number_input('Masukkan volume titran ketiga (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
             
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -300,9 +307,12 @@ else :
 
         if selected_option == "Duplo": 
             massa_bikromat = st.number_input('Masukkan Massa K2Cr2O7 Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
-            number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
+            col1, col2 = st.columns(2)
+            with col1:
+                number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
            
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -328,11 +338,15 @@ else :
                 st.write(' ')
         else:
             massa_bikromat = st.number_input('Masukkan Massa K2Cr2O7 Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
-            number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_three = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
-
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col3:
+                number_three = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
                     time.sleep(1)
@@ -359,7 +373,7 @@ else :
             else:
                 st.write(' ')
     else:
-        #Standardisasi Larutan EDTA oleh CaCO3
+        # Standardisasi Larutan EDTA oleh CaCO3
         berat_molekul = 100.0869 #satuan mg/mmol
         selected_option = option_menu(menu_title=None, options=["Duplo","Triplo"], icons=["2-square", "3-square"], orientation="horizontal")
         st.header('Standardisasi Larutan EDTA oleh CaCO3')
@@ -367,9 +381,12 @@ else :
 
         if selected_option == "Duplo": 
             massa_kalsium_karbonat = st.number_input('Masukkan Massa CaCO3 Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
-            number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
+            col1, col2 = st.columns(2)
+            with col1:
+                number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
              
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -395,11 +412,15 @@ else :
 
         else:
             massa_kalsium_karbonat = st.number_input('Masukkan Massa CaCO3 Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
-            number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_three = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
-        
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col3:
+                number_three = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+           
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
                     time.sleep(1)

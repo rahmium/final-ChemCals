@@ -74,8 +74,11 @@ elif selected_option == 'Tentang Aplikasi':
     st.divider()
     text = """
     *Catatan:*
+    
     • ChemCals hanya dapat menghitung dan mengolah data hasil strandardisasi dengan metode titrasi secara tidak langsung
+    
     • BE dan BM Setiap molekul sudah ditetapkan dan dihitung berdasarkan ketentuan dalam IUPAC Technical Report *Pure Appl. Chem., Vol. 81, No. 11, pp. 2131-2156, 2009.*
+   
     """
      # Untuk membuat text justified
     html_content = f"""

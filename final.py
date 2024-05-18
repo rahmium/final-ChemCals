@@ -56,9 +56,7 @@ elif selected_option == 'Tentang Aplikasi':
 
     *Catatan:*
     
-    • Faktor pengali diisi jika titrasi yang dilakukan merupakan titrasi tidak langsung 
-    
-    • Jika dilakukan titrasi langsung, maka kolom 'Faktor Pengali' diisi dengan angka '1' 
+    • ChemCals hanya dapat menghitung dan mengolah data hasil strandardisasi dengan metode titrasi secara tidak langsung
     
     • BE dan BM Setiap molekul sudah ditetapkan dan dihitung berdasarkan ketentuan dalam IUPAC Technical Report *Pure Appl. Chem., Vol. 81, No. 11, pp. 2131-2156, 2009.*
     
@@ -89,7 +87,7 @@ else :
             massa_oksalat = st.number_input('Masukkan Massa Oksalat Hasil Penimbangan (mg)', placeholder='Ketikkan massa oksalat di sini...')
             number_one = st.number_input('Masukkan volume titran pertama (mL)', placeholder="Ketikkan angka di sini...")
             number_two = st.number_input('Masukkan volume titran kedua (mL)', placeholder="Ketikkan angka di sini...")
-            faktor_pengali = st.number_input('Masukkan faktor pengali',value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali = st.number_input('Masukkan faktor pengali',value=0, placeholder="Ketikkan angka di sini...")
         
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -99,9 +97,9 @@ else :
                     Konsentrasi_NaOH_dua = massa_oksalat/(faktor_pengali*number_two*berat_molekul)
                     Rata_rata_konsentrasi_NaOH = (Konsentrasi_NaOH_satu + Konsentrasi_NaOH_dua)/2
                     persen_RPD = ((absolute_value(Konsentrasi_NaOH_satu-Konsentrasi_NaOH_dua))/Rata_rata_konsentrasi_NaOH)*100
-                    st.write(f'Konsentrasi NaOH pertama = {Konsentrasi_NaOH_satu:.4f}')
-                    st.write(f'Konsentrasi NaOH kedua = {Konsentrasi_NaOH_dua:.4f}')
-                    st.write(f'Rata_rata_konsentrasi_NaOH = {Rata_rata_konsentrasi_NaOH:.4f}')
+                    st.write(f'Konsentrasi NaOH pertama = {Konsentrasi_NaOH_satu:.4f}N')
+                    st.write(f'Konsentrasi NaOH kedua = {Konsentrasi_NaOH_dua:.4f}N')
+                    st.write(f'Rata_rata_konsentrasi_NaOH = {Rata_rata_konsentrasi_NaOH:.4f}N')
                     st.write(f'% RPD = {persen_RPD:.2f}%')
                     st.success('Perhitungan Selesai', icon="✅")
                     st.divider()
@@ -116,7 +114,7 @@ else :
             number_one = st.number_input('Masukkan volume titran pertama (mL)', placeholder="Ketikkan angka di sini...")
             number_two = st.number_input('Masukkan volume titran kedua (mL)', placeholder="Ketikkan angka di sini...")
             number_three = st.number_input('Masukkan volume titran ketiga (mL)', placeholder="Ketikkan angka di sini...")
-            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
 
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -153,7 +151,7 @@ else :
             massa_boraks = st.number_input('Masukkan Massa Boraks Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan boraks di sini...')
             number_one_hcl = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_two_hcl = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
 
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -164,9 +162,9 @@ else :
                     Rata_rata_konsentrasi_HCl = (Konsentrasi_HCl_satu + Konsentrasi_HCl_dua)/2
                     persen_RPD_HCl =((absolute_value(Konsentrasi_HCl_satu-Konsentrasi_HCl_dua))/Rata_rata_konsentrasi_HCl)*100
                     
-                    st.write(f'Konsentrasi HCl pertama = {Konsentrasi_HCl_satu:.4f}')
-                    st.write(f'Konsentrasi HCl kedua = {Konsentrasi_HCl_dua:.4f}')
-                    st.write(f'Rata-Rata Konsentrasi HCl = {Rata_rata_konsentrasi_HCl:.4f}') 
+                    st.write(f'Konsentrasi HCl pertama = {Konsentrasi_HCl_satu:.4f}N')
+                    st.write(f'Konsentrasi HCl kedua = {Konsentrasi_HCl_dua:.4f}N')
+                    st.write(f'Rata-Rata Konsentrasi HCl = {Rata_rata_konsentrasi_HCl:.4f}N') 
                     st.write(f'% RPD = {persen_RPD_HCl:.2f}%')
 
                     st.success('Perhitungan Selesai', icon="✅")
@@ -181,7 +179,7 @@ else :
             number_one_hcl = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_two_hcl = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_three_hcl = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
 
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -220,7 +218,7 @@ else :
             massa_oksalat = st.number_input('Masukkan Massa Oksalat Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
             number_one = st.number_input('Masukkan volume titran pertama (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
             number_two = st.number_input('Masukkan volume titran kedua (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
-            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
         
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -231,9 +229,9 @@ else :
                     Rata_rata_konsentrasi_KMnO4 = (Konsentrasi_KMnO4_satu + Konsentrasi_KMnO4_dua)/2
                     persen_RPD = ((absolute_value(Konsentrasi_KMnO4_satu-Konsentrasi_KMnO4_dua))/Rata_rata_konsentrasi_KMnO4)*100
 
-                    st.write(f'Konsentrasi KMnO4 pertama = {Konsentrasi_KMnO4_satu:.4f}')
-                    st.write(f'Konsentrasi KMnO4 kedua = {Konsentrasi_KMnO4_dua:.4f}')
-                    st.write(f'Rata-Rata Konsentrasi KMnO4 = {Rata_rata_konsentrasi_KMnO4:.4f}') 
+                    st.write(f'Konsentrasi KMnO4 pertama = {Konsentrasi_KMnO4_satu:.4f}N')
+                    st.write(f'Konsentrasi KMnO4 kedua = {Konsentrasi_KMnO4_dua:.4f}N')
+                    st.write(f'Rata-Rata Konsentrasi KMnO4 = {Rata_rata_konsentrasi_KMnO4:.4f}N') 
                     st.write(f'% RPD = {persen_RPD:.2f}%')
 
                     st.success('Perhitungan Selesai', icon="✅")
@@ -248,7 +246,7 @@ else :
             number_one = st.number_input('Masukkan volume titran pertama (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
             number_two = st.number_input('Masukkan volume titran kedua (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
             number_three = st.number_input('Masukkan volume titran ketiga (mL)', value=0.00, placeholder="Ketikkan angka di sini...")
-            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
             
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -263,7 +261,7 @@ else :
 
                     st.write(f'Konsentrasi KMnO4 pertama = {Konsentrasi_KMnO4_satu:.4f}N')
                     st.write(f'Konsentrasi KMnO4 kedua = {Konsentrasi_KMnO4_dua:.4f}N')
-                    st.write(f'Konsentrasi NaOH ketiga = {Konsentrasi_KMnO4_tiga:.4f}N')
+                    st.write(f'Konsentrasi KMnO4 ketiga = {Konsentrasi_KMnO4_tiga:.4f}N')
                     st.write(f'Rata-Rata Konsentrasi KMnO4 = {Rata_rata_konsentrasi_KMnO4:.4f}N') 
                     st.write(f'SD = {SD_KMnO4:.4f}N')
                     st.write(f'% RSD = {persen_RSD:.2f}%')
@@ -288,7 +286,7 @@ else :
             massa_bikromat = st.number_input('Masukkan Massa K2Cr2O7 Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
             number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
            
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -317,7 +315,7 @@ else :
             number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_three = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
 
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -355,7 +353,7 @@ else :
             massa_kalsium_karbonat = st.number_input('Masukkan Massa CaCO3 Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan massa oksalat di sini...')
             number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
              
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -384,7 +382,7 @@ else :
             number_one = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_two = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             number_three = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Masukkan angka 1 jika dilakukan titrasi langsung...")
+            faktor_pengali= st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
         
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):

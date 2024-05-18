@@ -44,7 +44,17 @@ if selected_option == 'Beranda':
 elif selected_option == 'Tentang Aplikasi':
     st.header('PROFIL APLIKASI ChemCals')
     st.subheader("**DESKRIPSI**")
-    st.write("ChemCalcs adalah aplikasi berbasis website dengan bahasa pemrograman Python yang berguna untuk menghitung konsentrasi senyawa hasil standarisasi dalam berbagai reaksi kimia analisis, termasuk standarisasi NaOH, HCl, KMnO4, Tiosulfat, dan EDTA. Aplikasi ini dirancang untuk mempermudah praktisi kimia analisis dalam melakukan perhitungan konsentrasi dengan akurat dan efisien.")
+    text = """
+    ChemCalcs adalah aplikasi berbasis website dengan bahasa pemrograman Python yang berguna untuk menghitung konsentrasi senyawa hasil standarisasi dalam berbagai reaksi kimia analisis, termasuk standarisasi NaOH, HCl, KMnO4, Tiosulfat, dan EDTA. Aplikasi ini dirancang untuk mempermudah praktisi kimia analisis dalam melakukan perhitungan konsentrasi dengan akurat dan efisien.
+    """
+    # Untuk membuat text justified
+    html_content = f"""
+    <div style="text-align: justify;">
+        {text}
+    </div>
+    """
+    st.markdown(html_content, unsafe_allow_html=True)
+    
     st.subheader("**FUNGSI**")
     multiline_text="1. Menghitung konsentrasi senyawa hasil standardisasi \n 2. Menghitung nilai rata-rata konsentrasi senyawa hasil standardisasi \n 3. Menghitung nilai Standar Deviasi (SD) Konsentrasi Senyawa (Untuk sampel *triplo*) \n 4. Menghitung nilai Persen Relatif Standar Deviasi (%RSD) (untuk sampel *triplo*) \n 5. Menghitung Persen Relatif Persen Difference (%RPD) (untuk sampel *duplo*)"
     st.write(multiline_text)

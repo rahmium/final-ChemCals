@@ -77,7 +77,7 @@ else :
 
     #Konten halaman berdasarkan pilihan pengguna
     if selected_option == 'NaOH':
-        #Standardisasi NaOH dengan Asam Oksalat
+        # Standardisasi NaOH dengan Asam Oksalat
         berat_molekul = 63.03272 #satuan mg/mgrek
         selected_option = option_menu(menu_title=None, options=["Duplo","Triplo"], icons=["2-square", "3-square"], orientation="horizontal")
         st.header('Standardisasi NaOH dengan Asam Oksalat')
@@ -85,9 +85,13 @@ else :
 
         if selected_option == "Duplo":
             massa_oksalat = st.number_input('Masukkan Massa Oksalat Hasil Penimbangan (mg)', placeholder='Ketikkan massa oksalat di sini...')
-            number_one = st.number_input('Masukkan volume titran pertama (mL)', placeholder="Ketikkan angka di sini...")
-            number_two = st.number_input('Masukkan volume titran kedua (mL)', placeholder="Ketikkan angka di sini...")
             faktor_pengali = st.number_input('Masukkan faktor pengali',value=0, placeholder="Ketikkan angka di sini...")
+            col1,col2 = st.columns(2)
+            with col1:
+                number_one = st.number_input('Masukkan volume titran pertama (mL)', placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two = st.number_input('Masukkan volume titran kedua (mL)', placeholder="Ketikkan angka di sini...")
+            
         
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
@@ -111,11 +115,15 @@ else :
 
         else:
             massa_oksalat = st.number_input('Masukkan Massa Oksalat Hasil Penimbangan (mg)', placeholder='Ketikkan massa oksalat di sini...')
-            number_one = st.number_input('Masukkan volume titran pertama (mL)', placeholder="Ketikkan angka di sini...")
-            number_two = st.number_input('Masukkan volume titran kedua (mL)', placeholder="Ketikkan angka di sini...")
-            number_three = st.number_input('Masukkan volume titran ketiga (mL)', placeholder="Ketikkan angka di sini...")
             faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
-
+            col1,col2,col3 = st.columns(3)
+            with col1:
+                number_one = st.number_input('Masukkan volume titran pertama (mL)', placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two = st.number_input('Masukkan volume titran kedua (mL)', placeholder="Ketikkan angka di sini...")
+            with col3: 
+                number_three = st.number_input('Masukkan volume titran ketiga (mL)', placeholder="Ketikkan angka di sini...")
+            
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
                     time.sleep(1)
@@ -141,7 +149,7 @@ else :
                     st.error('Silakan lengkapi data Anda', icon="⚠️")
     
     elif selected_option == 'HCl':
-        #Standardisasi HCl dengan Boraks
+        # Standardisasi HCl dengan Boraks
         berat_molekul = 190.6861 #satuan mg/mgrek
         selected_option = option_menu(menu_title=None, options=["Duplo","Triplo"], icons=["2-square", "3-square"], orientation="horizontal")
         st.header('Standardisasi HCl dengan Boraks')
@@ -149,10 +157,13 @@ else :
 
         if selected_option == "Duplo":        
             massa_boraks = st.number_input('Masukkan Massa Boraks Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan boraks di sini...')
-            number_one_hcl = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_two_hcl = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
-
+            col1, col2 = st.columns(2)
+            with col1:
+                number_one_hcl = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two_hcl = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):
                     time.sleep(1)
@@ -176,10 +187,15 @@ else :
                 st.write(' ') 
         else:
             massa_boraks = st.number_input('Masukkan Massa Boraks Hasil Penimbangan (mg)', value=0.00, placeholder='Ketikkan boraks di sini...')
-            number_one_hcl = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_two_hcl = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
-            number_three_hcl = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
             faktor_pengali = st.number_input('Masukkan faktor pengali', value=0, placeholder="Ketikkan angka di sini...")
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                number_one_hcl = st.number_input("Masukkan volume titran pertama (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col2:
+                number_two_hcl = st.number_input("Masukkan volume titran kedua (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            with col3: 
+                number_three_hcl = st.number_input("Masukkan volume titran ketiga (mL)", value=0.00, placeholder="Ketikkan angka di sini...")
+            
 
             if st.button('Hitung'):
                 with st.spinner('Mohon Ditunggu'):

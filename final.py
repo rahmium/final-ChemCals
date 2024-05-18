@@ -54,33 +54,75 @@ elif selected_option == 'Tentang Aplikasi':
     </div>
     """
     st.markdown(html_content, unsafe_allow_html=True)
-    
     st.subheader("**FUNGSI**")
     multiline_text="1. Menghitung konsentrasi senyawa hasil standardisasi \n 2. Menghitung nilai rata-rata konsentrasi senyawa hasil standardisasi \n 3. Menghitung nilai Standar Deviasi (SD) Konsentrasi Senyawa (Untuk sampel *triplo*) \n 4. Menghitung nilai Persen Relatif Standar Deviasi (%RSD) (untuk sampel *triplo*) \n 5. Menghitung Persen Relatif Persen Difference (%RPD) (untuk sampel *duplo*)"
     st.write(multiline_text)
     st.subheader("**CARA PEMAKAIAN**")
-    multiline_text="1. Pilih senyawa yang akan distandarisasi dari pilihan yang disediakan, yaitu NaOH, HCl, KMnO4, Tiosulfat, atau EDTA \n 2. Pilih pengulangan titrasi yang dilakukan (*duplo* atau *triplo*) \n 3. Masukkan bobot senyawa standar baku primer sesuai hasil penimbangan, volume titran hasil titrasi, serta faktor pengali \n 3. Tekan tombol 'Hitung' dan tunggu beberapa saat sampai hasil perhitungan keluar "
-    st.write(multiline_text)
-    st.divider()
-    long_markdown="""
-
-    *Catatan:*
-    
-    • ChemCals hanya dapat menghitung dan mengolah data hasil strandardisasi dengan metode titrasi secara tidak langsung
-    
-    • BE dan BM Setiap molekul sudah ditetapkan dan dihitung berdasarkan ketentuan dalam IUPAC Technical Report *Pure Appl. Chem., Vol. 81, No. 11, pp. 2131-2156, 2009.*
-    
+    text = """
+    1. Pilih senyawa yang akan distandarisasi dari pilihan yang disediakan, yaitu NaOH, HCl, KMnO4, Tiosulfat, atau EDTA 
+    2. Pilih pengulangan titrasi yang dilakukan (*duplo* atau *triplo*) 
+    3. Masukkan bobot senyawa standar baku primer sesuai hasil penimbangan, volume titran hasil titrasi, serta faktor pengali
+    4. Tekan tombol 'Hitung' dan tunggu beberapa saat sampai hasil perhitungan keluar
     """
-    st.markdown(long_markdown)
+     # Untuk membuat text justified
+    html_content = f"""
+    <div style="text-align: justify;">
+        {text}
+    </div>
+    """
+    st.markdown(html_content, unsafe_allow_html=True)
+    st.divider()
+    text = """
+    *Catatan:*
+    • ChemCals hanya dapat menghitung dan mengolah data hasil strandardisasi dengan metode titrasi secara tidak langsung
+    • BE dan BM Setiap molekul sudah ditetapkan dan dihitung berdasarkan ketentuan dalam IUPAC Technical Report *Pure Appl. Chem., Vol. 81, No. 11, pp. 2131-2156, 2009.*
+    """
+     # Untuk membuat text justified
+    html_content = f"""
+    <div style="text-align: justify;">
+        {text}
+    </div>
+    """
+    st.markdown(html_content, unsafe_allow_html=True)
 elif selected_option == 'Profil Kelompok':
     st.header('PROFIL KELOMPOK 3')
     st.subheader("**DESKRIPSI KELOMPOK**")
-    st.write("Kami adalah kelompok mahasiswa jurusan kimia analisis yang berdedikasi untuk mengembangkan aplikasi Python yang berguna bagi praktisi kimia analisis. Dengan pengetahuan mendalam tentang konsep kimia analisis dan keterampilan pemrograman, kami bertekad untuk menciptakan alat yang dapat membantu dalam perhitungan konsentrasi senyawa hasil standardisasi secara efisien dan akurat.")
+    text = """
+    Kami adalah kelompok mahasiswa jurusan kimia analisis yang berdedikasi untuk mengembangkan aplikasi Python yang berguna bagi praktisi kimia analisis. Dengan pengetahuan mendalam tentang konsep kimia analisis dan keterampilan pemrograman, kami bertekad untuk menciptakan alat yang dapat membantu dalam perhitungan konsentrasi senyawa hasil standardisasi secara efisien dan akurat.
+    """
+    # Untuk membuat text justified
+    html_content = f"""
+    <div style="text-align: justify;">
+        {text}
+    </div>
+    """
+    st.markdown(html_content, unsafe_allow_html=True)
     st.subheader("**ANGGOTA:**")
-    multiline_text=" 1. Devrilla Raffania Chandwita (2360102)\n 2. Najwah Tsuroyya Mansyur (2360202)\n 3. Nisvatul Laili (236014)\n 4. Rafif Adli (2360230)\n 5. Rahmi Utami Mulyadi (2360231)"
-    st.write(multiline_text)
+    text = """ 
+    1. Devrilla Raffania Chandwita (2360102)
+    2. Najwah Tsuroyya Mansyur (2360202)
+    3. Nisvatul Laili (236014)
+    4. Rafif Adli (2360230)
+    5. Rahmi Utami Mulyadi (2360231)
+    """
+     # Untuk membuat text justified
+    html_content = f"""
+    <div style="text-align: justify;">
+        {text}
+    </div>
+    """
+    st.markdown(html_content, unsafe_allow_html=True)
     st.subheader("**TUJUAN KELOMPOK**")
-    st.write("Mengembangkan aplikasi berbasis website dengan bahasa pemrograman Python yang dapat menghitung konsentrasi senyawa hasil standardisasi berdasarkan data percobaan kimia analisis dengan akurasi tinggi dan kemudahan penggunaan untuk mempercepat proses pengolahan data hasil analisis di laboratorium.")
+    text = """
+    Mengembangkan aplikasi berbasis website dengan bahasa pemrograman Python yang dapat menghitung konsentrasi senyawa hasil standardisasi berdasarkan data percobaan kimia analisis dengan akurasi tinggi dan kemudahan penggunaan untuk mempercepat proses pengolahan data hasil analisis di laboratorium.
+    """
+     # Untuk membuat text justified
+    html_content = f"""
+    <div style="text-align: justify;">
+        {text}
+    </div>
+    """
+    st.markdown(html_content, unsafe_allow_html=True)
 else :
     st.title("ChemCals")
     selected_option = option_menu(menu_title=None, options=['NaOH','HCl', 'KMnO4', 'Tiosulfat','EDTA' ], icons=["glass-hour","glass-hour","glass-hour","glass-hour","glass-hour"], orientation='horizontal')

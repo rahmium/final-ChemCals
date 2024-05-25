@@ -107,7 +107,7 @@ elif selected_option == 'Tentang Aplikasi':
         """
         st.markdown(html_content, unsafe_allow_html=True)
         st.subheader('**Rumus-Rumus dalam Mengolah Data Hasil Standardisasi**')
-        gambar1 = Image.open('Rumus Chemcals.jpg')
+        gambar1 = Image.open('Rumus ChemCals.jpg')
         st.image(gambar1, caption='Rumus-Rumus dalam Mengolah Data Hasil Standardisasi', use_column_width=True)
     
         st.subheader('**Normalitas (N)**')

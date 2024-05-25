@@ -5,6 +5,7 @@ import time
 import json
 import requests 
 from streamlit_lottie import st_lottie
+from PIL import Image
 
 def absolute_value(x):
     return (x**2) ** 0.5
@@ -42,54 +43,137 @@ if selected_option == 'Beranda':
     st.markdown("<center>We Help you to Ease your Analyst Process</center>", unsafe_allow_html=True)
         
 elif selected_option == 'Tentang Aplikasi':
-    st.header('PROFIL APLIKASI ChemCals')
-    st.subheader("**DESKRIPSI**")
-    text = """
-    ChemCalcs adalah aplikasi berbasis website dengan bahasa pemrograman Python yang berguna untuk menghitung konsentrasi senyawa hasil standarisasi dalam berbagai reaksi kimia analisis, termasuk standarisasi NaOH, HCl, KMnO4, Tiosulfat, dan EDTA. Aplikasi ini dirancang untuk mempermudah praktisi kimia analisis dalam melakukan perhitungan konsentrasi dengan akurat dan efisien.
-    """
-    # Untuk membuat text justified
-    html_content = f"""
-    <div style="text-align: justify;">
-        {text}
-    </div>
-    """
-    st.markdown(html_content, unsafe_allow_html=True)
-    st.subheader("**FUNGSI**")
-    multiline_text="1. Menghitung konsentrasi senyawa hasil standardisasi \n 2. Menghitung nilai rata-rata konsentrasi senyawa hasil standardisasi \n 3. Menghitung nilai Standar Deviasi (SD) Konsentrasi Senyawa (Untuk sampel *triplo*) \n 4. Menghitung nilai Persen Relatif Standar Deviasi (%RSD) (untuk sampel *triplo*) \n 5. Menghitung Persen Relatif Persen Difference (%RPD) (untuk sampel *duplo*)"
-    st.write(multiline_text)
-    st.subheader("**CARA PEMAKAIAN**")
-    text = """
-    1. Pilih senyawa yang akan distandarisasi dari pilihan yang disediakan, yaitu NaOH, HCl, KMnO4, Tiosulfat, atau EDTA 
-    2. Pilih pengulangan titrasi yang dilakukan (*duplo* atau *triplo*) 
-    3. Masukkan bobot senyawa standar baku primer sesuai hasil penimbangan, volume titran hasil titrasi, serta faktor pengali
-    4. Tekan tombol 'Hitung' dan tunggu beberapa saat sampai hasil perhitungan keluar
-    """
-     # Untuk membuat text justified
-    html_content = f"""
-    <div style="text-align: justify;">
-        {text}
-    </div>
-    """
-    st.markdown(html_content, unsafe_allow_html=True)
-    st.divider()
-    text = """
-    *Catatan:*
+     selected_option = option_menu(menu_title=None, options=['Profil Aplikasi ChemCals','Materi Standardisasi' ], icons=["glass-hour","glass-hour"], orientation='horizontal')
     
-    • ChemCals hanya dapat menghitung dan mengolah data hasil strandardisasi dengan metode titrasi secara tidak langsung
+    if selected_option == 'Profil Aplikasi ChemCals':
+        st.header('Profil Aplikasi ChemCals')
+        st.subheader("**Deskripsi**")
+        text = """
+        ChemCalcs adalah aplikasi berbasis website dengan bahasa pemrograman Python yang berguna untuk menghitung konsentrasi senyawa hasil standarisasi dalam berbagai reaksi kimia analisis, termasuk standarisasi NaOH, HCl, KMnO4, Tiosulfat, dan EDTA. Aplikasi ini dirancang untuk mempermudah praktisi kimia analisis dalam melakukan perhitungan konsentrasi dengan akurat dan efisien.
+        """
+        # Untuk membuat text justified
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+        st.subheader("**Fungsi**")
+        multiline_text="1. Menghitung konsentrasi senyawa hasil standardisasi \n 2. Menghitung nilai rata-rata konsentrasi senyawa hasil standardisasi \n 3. Menghitung nilai Standar Deviasi (SD) Konsentrasi Senyawa (Untuk sampel *triplo*) \n 4. Menghitung nilai Persen Relatif Standar Deviasi (%RSD) (untuk sampel *triplo*) \n 5. Menghitung Persen Relatif Persen Difference (%RPD) (untuk sampel *duplo*)"
+        st.write(multiline_text)
+        st.subheader("**Cara Pemakaian**")
+        text = """
+        1. Pilih senyawa yang akan distandarisasi dari pilihan yang disediakan, yaitu NaOH, HCl, KMnO4, Tiosulfat, atau EDTA 
+        2. Pilih pengulangan titrasi yang dilakukan (*duplo* atau *triplo*) 
+        3. Masukkan bobot senyawa standar baku primer sesuai hasil penimbangan, volume titran hasil titrasi, serta faktor pengali
+        4. Tekan tombol 'Hitung' dan tunggu beberapa saat sampai hasil perhitungan keluar
+        """
+        # Untuk membuat text justified
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+        st.divider()
+        text = """
+        *Catatan:*
+        
+        • ChemCals hanya dapat menghitung dan mengolah data hasil strandardisasi dengan metode titrasi secara tidak langsung
+        
+        • BE dan BM Setiap molekul sudah ditetapkan dan dihitung berdasarkan ketentuan dalam IUPAC Technical Report *Pure Appl. Chem., Vol. 81, No. 11, pp. 2131-2156, 2009.*
     
-    • BE dan BM Setiap molekul sudah ditetapkan dan dihitung berdasarkan ketentuan dalam IUPAC Technical Report *Pure Appl. Chem., Vol. 81, No. 11, pp. 2131-2156, 2009.*
-   
-    """
-     # Untuk membuat text justified
-    html_content = f"""
-    <div style="text-align: justify;">
-        {text}
-    </div>
-    """
-    st.markdown(html_content, unsafe_allow_html=True)
+        """
+        # Untuk membuat text justified
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+    else:
+        st.header('Materi Standardisasi')
+        st.subheader('**Pengertian Standardisasi Senyawa**')
+        text = """
+        Standardisasi larutan merupakan proses saat konsentrasi larutan standar sekunder ditentukan dengan tepat dengan cara mentitrasi menggunaka larutan standar primer. Larutan standar primer adalah larutan yang konsentrasinya harus diketahui dengan teliti dengan cara penimbangan zat yang dilarutkan dalam volume tertentu. Sedangkan larutan standar sekunder adalah larutan standar yang dipersiapkan dengan menimbang dan melarutkan suatu zat tertentu dengan kemurnian relatif rendah sehingga konsentrasi diketahui dari hasil standardisasi.
+        
+        Standardisasi penting dilakukan agar senyawa kimia dapat digunakan dengan lebih aman, efektif, dan andal dalam berbagai aplikasi, mulai dari penelitian ilmiah hingga produksi industri dan penggunaan medis.
+        """
+        # Untuk membuat text justified
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+        st.subheader('**Rumus-Rumus dalam Mengolah Data Hasil Standardisasi**')
+        gambar1 = Image.open('Rumus Chemcals.jpg')
+        st.image(gambar1, caption='Rumus-Rumus dalam Mengolah Data Hasil Standardisasi', use_column_width=True)
+    
+        st.subheader('**Normalitas (N)**')
+        text = """
+        Normalitas merupakan satuan konsentrasi suatu senyawa yang menggambarkan jumlah gram ekuivalen senyawa yang ada dalam larutan.
+        """
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+        st.subheader('**Molaritas (M)**')
+        text = """
+        Molaritas adalah satuan konsentrasi suatu senyawa yang menggambarkan jumlah mol yang ada dalam larutan.
+        """
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+        st.subheader('**Rata-Rata**')
+        text = """
+        Rata-rata yang dimaksud dalam standardisasi adalah nilai rata-rata dari Normalitas atau Molaritas senyawa yang sudah distandardisasi.
+        """
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+        st.subheader('**Relative Persen Difference (%RPD)**')
+        text = """
+        Relative Persen Difference (%RPD) yaitu ukuran statistik yang digunakan untuk mengevaluasi perbedaan antara dua pengukuran. Nilai %RPD digunakan dalam pengolahan data hasil standardisasi secara duplo (dua kali pengulangan).
+        """
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+        st.subheader('**Standar Deviasi (SD)**')
+        text = """
+        Standar Deviasi (SD) adalah ukuran statistik yang digunakan untuk mengukur sejauh mana data dalam sebuah himpunan cenderung bervariasi dari nilai rata-ratanya. Semakin tinggi nilai SD, maka semakin besar variasi data, artinya tingkat ketelitian hasil analisis rendah.
+        """
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
+        st.subheader('**Relative Standar Deviasi (%RSD)**')
+        text = """
+        Relative Standar Deviasi (%RSD) adalah nilai absolut dari koefisien variasi. Nilai %RSD digunakan dalam pengolahan data hasil standardisasi secara triplo (tiga kali pengulangan).
+        """
+        html_content = f"""
+        <div style="text-align: justify;">
+            {text}
+        </div>
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
 elif selected_option == 'Profil Kelompok':
     st.header('PROFIL KELOMPOK 3')
-    st.subheader("**DESKRIPSI KELOMPOK**")
+    gambar2 = Image.open('Chemcals Team.jpg')
+    st.image(gambar2, use_column_width=True)
     text = """
     Kami adalah kelompok mahasiswa jurusan kimia analisis yang berdedikasi untuk mengembangkan aplikasi Python yang berguna bagi praktisi kimia analisis. Dengan pengetahuan mendalam tentang konsep kimia analisis dan keterampilan pemrograman, kami bertekad untuk menciptakan alat yang dapat membantu dalam perhitungan konsentrasi senyawa hasil standardisasi secara efisien dan akurat.
     """

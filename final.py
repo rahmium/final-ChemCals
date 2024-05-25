@@ -44,53 +44,53 @@ if selected_option == 'Beranda':
         
 elif selected_option == 'Tentang Aplikasi':
      selected_option = option_menu(menu_title=None, options=['Profil Aplikasi ChemCals','Materi Standardisasi' ], icons=["glass-hour","glass-hour"], orientation='horizontal')
-    
-    if selected_option == 'Profil Aplikasi ChemCals':
-        st.header('Profil Aplikasi ChemCals')
-        st.subheader("**Deskripsi**")
-        text = """
-        ChemCalcs adalah aplikasi berbasis website dengan bahasa pemrograman Python yang berguna untuk menghitung konsentrasi senyawa hasil standarisasi dalam berbagai reaksi kimia analisis, termasuk standarisasi NaOH, HCl, KMnO4, Tiosulfat, dan EDTA. Aplikasi ini dirancang untuk mempermudah praktisi kimia analisis dalam melakukan perhitungan konsentrasi dengan akurat dan efisien.
-        """
-        # Untuk membuat text justified
-        html_content = f"""
-        <div style="text-align: justify;">
-            {text}
-        </div>
-        """
-        st.markdown(html_content, unsafe_allow_html=True)
-        st.subheader("**Fungsi**")
-        multiline_text="1. Menghitung konsentrasi senyawa hasil standardisasi \n 2. Menghitung nilai rata-rata konsentrasi senyawa hasil standardisasi \n 3. Menghitung nilai Standar Deviasi (SD) Konsentrasi Senyawa (Untuk sampel *triplo*) \n 4. Menghitung nilai Persen Relatif Standar Deviasi (%RSD) (untuk sampel *triplo*) \n 5. Menghitung Persen Relatif Persen Difference (%RPD) (untuk sampel *duplo*)"
-        st.write(multiline_text)
-        st.subheader("**Cara Pemakaian**")
-        text = """
-        1. Pilih senyawa yang akan distandarisasi dari pilihan yang disediakan, yaitu NaOH, HCl, KMnO4, Tiosulfat, atau EDTA 
-        2. Pilih pengulangan titrasi yang dilakukan (*duplo* atau *triplo*) 
-        3. Masukkan bobot senyawa standar baku primer sesuai hasil penimbangan, volume titran hasil titrasi, serta faktor pengali
-        4. Tekan tombol 'Hitung' dan tunggu beberapa saat sampai hasil perhitungan keluar
-        """
-        # Untuk membuat text justified
-        html_content = f"""
-        <div style="text-align: justify;">
-            {text}
-        </div>
-        """
-        st.markdown(html_content, unsafe_allow_html=True)
-        st.divider()
-        text = """
-        *Catatan:*
         
-        • ChemCals hanya dapat menghitung dan mengolah data hasil strandardisasi dengan metode titrasi secara tidak langsung
+        if selected_option == 'Profil Aplikasi ChemCals':
+            st.header('Profil Aplikasi ChemCals')
+            st.subheader("**Deskripsi**")
+            text = """
+            ChemCalcs adalah aplikasi berbasis website dengan bahasa pemrograman Python yang berguna untuk menghitung konsentrasi senyawa hasil standarisasi dalam berbagai reaksi kimia analisis, termasuk standarisasi NaOH, HCl, KMnO4, Tiosulfat, dan EDTA. Aplikasi ini dirancang untuk mempermudah praktisi kimia analisis dalam melakukan perhitungan konsentrasi dengan akurat dan efisien.
+            """
+            # Untuk membuat text justified
+            html_content = f"""
+            <div style="text-align: justify;">
+                {text}
+            </div>
+            """
+            st.markdown(html_content, unsafe_allow_html=True)
+            st.subheader("**Fungsi**")
+            multiline_text="1. Menghitung konsentrasi senyawa hasil standardisasi \n 2. Menghitung nilai rata-rata konsentrasi senyawa hasil standardisasi \n 3. Menghitung nilai Standar Deviasi (SD) Konsentrasi Senyawa (Untuk sampel *triplo*) \n 4. Menghitung nilai Persen Relatif Standar Deviasi (%RSD) (untuk sampel *triplo*) \n 5. Menghitung Persen Relatif Persen Difference (%RPD) (untuk sampel *duplo*)"
+            st.write(multiline_text)
+            st.subheader("**Cara Pemakaian**")
+            text = """
+            1. Pilih senyawa yang akan distandarisasi dari pilihan yang disediakan, yaitu NaOH, HCl, KMnO4, Tiosulfat, atau EDTA 
+            2. Pilih pengulangan titrasi yang dilakukan (*duplo* atau *triplo*) 
+            3. Masukkan bobot senyawa standar baku primer sesuai hasil penimbangan, volume titran hasil titrasi, serta faktor pengali
+            4. Tekan tombol 'Hitung' dan tunggu beberapa saat sampai hasil perhitungan keluar
+            """
+            # Untuk membuat text justified
+            html_content = f"""
+            <div style="text-align: justify;">
+                {text}
+            </div>
+            """
+            st.markdown(html_content, unsafe_allow_html=True)
+            st.divider()
+            text = """
+            *Catatan:*
+            
+            • ChemCals hanya dapat menghitung dan mengolah data hasil strandardisasi dengan metode titrasi secara tidak langsung
+            
+            • BE dan BM Setiap molekul sudah ditetapkan dan dihitung berdasarkan ketentuan dalam IUPAC Technical Report *Pure Appl. Chem., Vol. 81, No. 11, pp. 2131-2156, 2009.*
         
-        • BE dan BM Setiap molekul sudah ditetapkan dan dihitung berdasarkan ketentuan dalam IUPAC Technical Report *Pure Appl. Chem., Vol. 81, No. 11, pp. 2131-2156, 2009.*
-    
-        """
-        # Untuk membuat text justified
-        html_content = f"""
-        <div style="text-align: justify;">
-            {text}
-        </div>
-        """
-        st.markdown(html_content, unsafe_allow_html=True)
+            """
+            # Untuk membuat text justified
+            html_content = f"""
+            <div style="text-align: justify;">
+                {text}
+            </div>
+            """
+            st.markdown(html_content, unsafe_allow_html=True)
     else:
         st.header('Materi Standardisasi')
         st.subheader('**Pengertian Standardisasi Senyawa**')
